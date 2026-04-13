@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mimi Salon - Semarang</title>
+    <style>
+        /* Pengaturan Dasar */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fdfbfb;
+            color: #333;
+        }
+
+        /* Bagian Header & Navigasi */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            color: #d81b60; /* Warna pink elegan */
+        }
+        nav a {
+            color: #555;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+        }
+        nav a:hover {
+            color: #d81b60;
+        }
+
+        /* Bagian Utama (Hero Section) */
+        .hero {
+            /* Menggunakan gambar placeholder bernuansa salon/kecantikan */
+            background: linear-gradient(rgba(255, 240, 245, 0.85), rgba(255, 240, 245, 0.85)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .hero h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 20px;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        .rating-hero {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #d81b60;
+            margin-bottom: 30px;
+        }
+        .btn-pesan {
+            background-color: #25D366; /* Warna WhatsApp */
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border-radius: 25px;
+            font-weight: bold;
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .btn-pesan:hover {
+            background-color: #1ebe57;
+            box-shadow: 0 4px 8px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Bagian Konten (Layanan & Ulasan) */
+        .section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .section h2 {
+            text-align: center;
+            color: #d81b60;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        /* Grid Layanan */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            text-align: center;
+            border-top: 3px solid #d81b60;
+        }
+        .card h3 {
+            color: #333;
+            margin-top: 0;
+        }
+        .card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Kotak Ulasan */
+        .ulasan-container {
+            background-color: #fff0f5; /* Soft pink */
+            padding: 30px;
+            border-radius: 10px;
+        }
+        .ulasan-item {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #444;
+            line-height: 1.6;
+        }
+        .rating-bintang {
+            color: #ffc107; /* Warna emas untuk bintang */
+            font-weight: bold;
+        }
+        .ulasan-nama {
+            font-weight: bold;
+            color: #d81b60;
+        }
+
+        /* Bagian Footer / Kontak */
+        footer {
+            background-color: #2c2c2c;
+            color: #f9f9f9;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+        footer h2 {
+            color: #fff;
+            margin-top: 0;
+        }
+        footer p {
+            margin: 10px 0;
+            font-size: 1rem;
+        }
+        .footer-bottom {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Mimi Salon</h1>
+        <nav>
+            <a href="#beranda">Beranda</a>
+            <a href="#layanan">Layanan</a>
+            <a href="#ulasan">Ulasan</a>
+            <a href="#kontak">Kontak</a>
+        </nav>
+    </header>
+
+    <section id="beranda" class="hero">
+        <h2>Perawatan Kecantikan Profesional & Terpercaya</h2>
+        <p>Dengan pengalaman lebih dari 20 tahun, kami mengutamakan pelayanan ramah, kerja cepat, dan hasil yang tidak mengecewakan. Kualitas terbaik dengan harga yang *affordable*.</p>
+        <div class="rating-hero">⭐ 4.5/5 (Berdasarkan Ulasan Google)</div>
+        <a href="https://wa.me/628122937040?text=Halo%20Mimi%20Salon,%20saya%20ingin%20reservasi/tanya%20layanan..." class="btn-pesan">Reservasi via WhatsApp</a>
+    </section>
+
+    <section id="layanan" class="section">
+        <h2>Layanan Kami</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Potong & Penataan Rambut</h3>
+                <p>Mulai dari potong rambut biasa hingga penataan rambut spesial dan tata rambut pengantin.</p>
+            </div>
+            <div class="card">
+                <h3>Perawatan & Cuci</h3>
+                <p>Layanan sampo, kondisioner, dan perawatan (*treatment*) agar rambut tetap sehat terawat.</p>
+            </div>
+            <div class="card">
+                <h3>Ekstensi & Kepang</h3>
+                <p>Melayani jasa ekstensi rambut profesional dan juga teknik pengepangan rambut.</p>
+            </div>
+            <div class="card">
+                <h3>Jasa Rias (Makeup)</h3>
+                <p>Make up profesional untuk berbagai acara, memastikan Anda tampil memukau di momen spesial.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="ulasan" class="section">
+        <h2>Apa Kata Pelanggan Kami?</h2>
+        <div class="ulasan-container">
+            <div class="ulasan-item">
+                "Berpengalaman selama 20th Pelayanan ramah,kerja cepat tp hasil tdk mengecewakan" <br>
+                <span class="rating-bintang">⭐⭐⭐⭐⭐</span> — <span class="ulasan-nama">J</span>
+            </div>
+            <hr style="border: 0; border-top: 1px solid #eebbcc; margin: 20px 0;">
+            <div class="ulasan-item">
+                "Mau potong, mau treatment semua memuaskan...harga affordable sesuai kualitas." <br>
+                <span class="rating-bintang">⭐⭐⭐⭐⭐</span> — <span class="ulasan-nama">Fr</span>
+            </div>
+        </div>
+    </section>
+
+    <footer id="kontak">
+        <h2>Mimi Salon</h2>
+        <p>📍 Jl. Lamongan Raya No.9, Bendan Ngisor, Kec. Gajahmungkur, Kota Semarang, Jawa Tengah 50232</p>
+        <p>🕒 Buka Setiap Hari (Tutup pukul 18.00)</p>
+        <p>📞 Telp / WA: 0812-2937-040</p>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Mimi Salon. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
