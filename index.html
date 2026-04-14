@@ -1,621 +1,490 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mimi Salon - Elevate Your Style 💖</title>
+    <title>Mimi Salon | Slay Your Hair Day 💖</title>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Config for Custom Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pastel: {
+                            pink: '#FFD1DC',
+                            darkpink: '#FF9EBB',
+                            bg: '#FFF5F7',
+                            text: '#4A3038'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        handwriting: ['Caveat', 'cursive'],
+                    },
+                    boxShadow: {
+                        'genz': '6px 6px 0px 0px #FF9EBB',
+                        'genz-hover': '2px 2px 0px 0px #FF9EBB',
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        /* RESET & DASAR */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth; /* Efek gulir halus */
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #fffafb; /* Pink pastel sangat muda */
-            color: #4a4a4a; /* Teks abu-abu gelap agar kontras lembut */
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: color 0.3s ease;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        /* PALETTE WARNA GEN Z PINK PASTEL */
-        :root {
-            --pink-light: #fffafb; /* Dasar */
-            --pink-medium: #ffeef2; /* Latar belakang bagian */
-            --pink-dark: #ffdbe9; /* Aksen/tombol */
-            --pink-bold: #ff8fa3; /* Teks penekanan/hover */
-            --text-main: #4a4a4a;
-            --text-heading: #2c2c2c;
-            --white: #ffffff;
-            --cream: #fffaf3;
-        }
-
-        /* HEADER & NAVIGASI */
-        header {
-            background-color: var(--white);
-            padding: 1rem 5%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--text-heading);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo-pink {
-            color: var(--pink-bold);
-        }
-
-        nav ul {
-            display: flex;
-            gap: 2rem;
-        }
-
-        nav a {
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        nav a:hover {
-            color: var(--pink-bold);
-        }
-
-        .cta-header {
-            background-color: var(--pink-bold);
-            color: var(--white);
-            padding: 0.7rem 1.5rem;
-            border-radius: 50px; /* Sudut sangat melengkung */
-            font-weight: 700;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .cta-header:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(255, 143, 163, 0.3);
-        }
-
-        /* HERO SECTION */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-image: linear-gradient(rgba(255, 250, 251, 0.7), rgba(255, 250, 251, 0.7)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=2000&auto=format&fit=crop'); /* Gambar interior salon stok aesthetic */
-            background-size: cover;
-            background-position: center;
-            padding: 0 5%;
-            margin-top: 80px; /* Jarak untuk header */
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 800px;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 1.2;
-            color: var(--text-heading);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero h1 span {
-            color: var(--pink-bold);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
-            color: var(--text-main);
-        }
-
-        .hero-cta {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-        }
-
-        .btn-large {
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-
-        .btn-pink {
-            background-color: var(--pink-bold);
-            color: var(--white);
-        }
-
-        .btn-pink:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255, 143, 163, 0.3);
-        }
-
-        .btn-outline {
-            border: 2px solid var(--pink-bold);
-            color: var(--pink-bold);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--pink-medium);
-            transform: translateY(-5px);
-        }
-
-        /* BAGIAN RATING (DARI GAMBAR) */
-        .rating-section {
-            background-color: var(--white);
-            padding: 2rem 5%;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-            border-bottom: 2px solid var(--pink-medium);
-        }
-
-        .rating-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--pink-bold);
-        }
-
-        .stars {
-            color: #ffc107; /* Warna bintang kuning emas */
-            font-size: 1.5rem;
-        }
-
-        .review-count {
-            color: var(--text-main);
-            font-size: 1rem;
-        }
-
-        /* BAGIAN LAYANAN */
-        .services {
-            padding: 5rem 5%;
-            background-color: var(--pink-medium);
-        }
-
-        .services h2 {
-            font-size: 2.8rem;
-            text-align: center;
-            margin-bottom: 4rem;
-            color: var(--text-heading);
-        }
-
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background-color: var(--white);
-            padding: 2.5rem 2rem;
-            border-radius: 20px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(255, 143, 163, 0.15);
-        }
-
-        .service-icon {
-            font-size: 3.5rem;
-            color: var(--pink-bold);
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .service-card h3 {
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: var(--text-heading);
-            margin-bottom: 1rem;
-        }
-
-        .service-card p {
-            color: var(--text-main);
-            font-size: 1rem;
-        }
-
-        /* BAGIAN GALERI (TAMBAHAN UNTUK AESTHETIC) */
-        .gallery {
-            padding: 5rem 5%;
-            background-color: var(--white);
-        }
-
-        .gallery h2 {
-            font-size: 2.8rem;
-            text-align: center;
-            margin-bottom: 4rem;
-            color: var(--text-heading);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .gallery-item {
-            border-radius: 15px;
+        /* Custom Marquee Animation */
+        .marquee-container {
             overflow: hidden;
-            position: relative;
-            transition: transform 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            white-space: nowrap;
         }
-
-        .gallery-item img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            display: block;
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
         }
-
-        .gallery-item:hover {
-            transform: scale(1.03);
-        }
-
-        /* BAGIAN ULASAN (DARI GAMBAR) */
-        .reviews {
-            padding: 5rem 5%;
-            background-color: var(--cream);
-        }
-
-        .reviews h2 {
-            font-size: 2.8rem;
-            text-align: center;
-            margin-bottom: 4rem;
-            color: var(--text-heading);
-        }
-
-        .review-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .review-card {
-            background-color: var(--white);
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
-            position: relative;
-        }
-
-        .review-card p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-main);
-            margin-bottom: 1.5rem;
-            font-style: italic;
-        }
-
-        .review-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-weight: 600;
-            color: var(--text-heading);
-        }
-
-        .author-initial {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: var(--pink-bold);
-            color: var(--white);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-
-        /* BAGIAN KONTAK */
-        .contact {
-            padding: 5rem 5%;
-            background-color: var(--white);
-        }
-
-        .contact h2 {
-            font-size: 2.8rem;
-            text-align: center;
-            margin-bottom: 4rem;
-            color: var(--text-heading);
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 3rem;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: start;
-            gap: 1.5rem;
-        }
-
-        .info-icon {
-            font-size: 2rem;
-            color: var(--pink-bold);
-            margin-top: 0.3rem;
-        }
-
-        .info-text h3 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--text-heading);
-            margin-bottom: 0.5rem;
-        }
-
-        .info-text p, .info-text a {
-            color: var(--text-main);
-            font-size: 1.1rem;
-        }
-
-        .info-text a:hover {
-            color: var(--pink-bold);
-        }
-
-        .map-placeholder {
-            width: 100%;
-            height: 350px;
-            border-radius: 20px;
-            border: 2px solid var(--pink-medium);
-            background-color: var(--cream);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--text-main);
-            font-size: 1.2rem;
-            text-align: center;
-            padding: 2rem;
-            overflow: hidden;
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
         
-        /* Simpulkan tampilan peta */
-        .map-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 18px;
+        /* Hide scrollbar but keep functionality */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FFF5F7; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FF9EBB; 
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff7da1; 
         }
 
-        /* FOOTER */
-        footer {
-            background-color: var(--white);
-            padding: 3rem 5%;
-            text-align: center;
-            border-top: 2px solid var(--pink-medium);
+        .blob-shape {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            animation: blob 8s ease-in-out infinite;
         }
 
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .social-link {
-            font-size: 1.8rem;
-            color: var(--text-main);
-        }
-
-        .social-link:hover {
-            color: var(--pink-bold);
-        }
-
-        .copyright {
-            color: var(--text-main);
-            font-size: 1rem;
-        }
-
-        /* RESPONSIVE DESIGN (HP) */
-        @media (max-width: 900px) {
-            header {
-                padding: 1rem 5%;
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            nav ul {
-                gap: 1rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .service-grid, .contact-content {
-                grid-template-columns: 1fr;
-            }
+        @keyframes blob {
+            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
         }
     </style>
 </head>
-<body>
+<body class="bg-pastel-bg text-pastel-text font-sans antialiased overflow-x-hidden">
 
-    <header>
-        <a href="#" class="logo">Mimi<span class="logo-pink">Salon</span> ✨</a>
-        <nav>
-            <ul>
-                <li><a href="#services">Layanan</a></li>
-                <li><a href="#gallery">Galeri</a></li>
-                <li><a href="#reviews">Ulasan</a></li>
-                <li><a href="#contact">Kontak</a></li>
-            </ul>
-        </nav>
-        <a href="#contact" class="cta-header">Booking Sekarang!</a>
-    </header>
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
+        <div class="absolute inset-0 bg-white/70 backdrop-blur-md shadow-sm border-b border-pastel-pink"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-10 h-10 bg-pastel-darkpink rounded-full flex items-center justify-center text-white font-bold text-xl shadow-genz">M</div>
+                    <span class="font-handwriting text-3xl font-bold text-pastel-darkpink mt-1">Mimi Salon</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8 font-semibold">
+                    <a href="#layanan" class="hover:text-pastel-darkpink transition">Layanan</a>
+                    <a href="#galeri" class="hover:text-pastel-darkpink transition">Galeri</a>
+                    <a href="#ulasan" class="hover:text-pastel-darkpink transition">Ulasan</a>
+                    <a href="#lokasi" class="bg-pastel-darkpink text-white px-6 py-2 rounded-full shadow-genz hover:shadow-genz-hover hover:translate-x-[4px] hover:translate-y-[4px] transition-all">Lokasi Kami</a>
+                </div>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Elevate Your Style with <span class="hero-span">Mimi Salon</span> Semarang</h1>
-            <p>Perawatan kecantikan terbaik dengan pengalaman lebih dari 20 tahun. Hasil memuaskan, harga terjangkau, dan pelayanan super ramah. Your hair, our priority! 💅💇‍♀️</p>
-            <div class="hero-cta">
-                <a href="#services" class="btn-large btn-pink">Layanan Kami</a>
-                <a href="#contact" class="btn-large btn-outline">Reservasi</a>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-pastel-text hover:text-pastel-darkpink focus:outline-none">
+                        <i data-lucide="menu" class="w-8 h-8"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden absolute w-full bg-white/95 backdrop-blur-md border-b border-pastel-pink shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-2 font-semibold flex flex-col text-center">
+                <a href="#layanan" class="block px-3 py-3 rounded-xl hover:bg-pastel-pink/30">Layanan</a>
+                <a href="#galeri" class="block px-3 py-3 rounded-xl hover:bg-pastel-pink/30">Galeri</a>
+                <a href="#ulasan" class="block px-3 py-3 rounded-xl hover:bg-pastel-pink/30">Ulasan</a>
+                <a href="#lokasi" class="block px-3 py-3 rounded-xl bg-pastel-darkpink text-white mx-4 mt-4 shadow-genz">Lokasi Kami</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
+        <!-- Decorative blobs -->
+        <div class="absolute top-20 -left-20 w-72 h-72 bg-pastel-pink rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob"></div>
+        <div class="absolute top-40 -right-20 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob" style="animation-delay: 2s;"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Text Content -->
+                <div class="space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border-2 border-pastel-darkpink text-sm font-bold text-pastel-darkpink shadow-[4px_4px_0px_0px_#FF9EBB]">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i>
+                        <span>Buka Setiap Hari s/d 18.00</span>
+                    </div>
+                    
+                    <h1 class="text-5xl lg:text-7xl font-extrabold leading-tight">
+                        Glow Up <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-pastel-darkpink to-pink-400 font-handwriting text-6xl lg:text-8xl font-normal">Your Look!</span>
+                    </h1>
+                    
+                    <p class="text-lg text-gray-600 max-w-xl mx-auto lg:mx-0">
+                        Mau potong, mau treatment semua memuaskan! Harga affordable sesuai kualitas. Berpengalaman 20 tahun siap bikin kamu makin <i>slay</i> dan percaya diri. 💅✨
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="https://wa.me/628122937040" target="_blank" class="bg-pastel-darkpink text-white px-8 py-4 rounded-full font-bold text-lg shadow-genz hover:shadow-genz-hover hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center justify-center gap-2">
+                            <i data-lucide="calendar-check" class="w-5 h-5"></i>
+                            Booking Sekarang
+                        </a>
+                        <div class="flex items-center justify-center lg:justify-start gap-2 text-gray-600 font-semibold px-4">
+                            <div class="flex">
+                                <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                                <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                                <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                                <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                                <i data-lucide="star-half" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                            </div>
+                            <span>4.5 (33 Ulasan)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Collage -->
+                <div class="relative w-full max-w-md mx-auto lg:max-w-none">
+                    <div class="absolute inset-0 bg-pastel-darkpink rounded-3xl rotate-6 scale-105 opacity-20"></div>
+                    <div class="relative bg-white p-4 rounded-3xl border-4 border-pastel-pink shadow-xl grid grid-cols-2 gap-4 transform -rotate-2 hover:rotate-0 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?q=80&w=600&auto=format&fit=crop" alt="Hair Coloring" class="w-full h-48 object-cover rounded-2xl">
+                        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=600&auto=format&fit=crop" alt="Hair Styling" class="w-full h-48 object-cover rounded-2xl mt-8">
+                        <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?q=80&w=600&auto=format&fit=crop" alt="Salon Interior" class="w-full h-48 object-cover rounded-2xl -mt-8">
+                        <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?q=80&w=600&auto=format&fit=crop" alt="Makeup Treatment" class="w-full h-48 object-cover rounded-2xl">
+                        
+                        <!-- Floating badge -->
+                        <div class="absolute -bottom-6 -left-6 bg-white border-4 border-pastel-darkpink rounded-full w-24 h-24 flex items-center justify-center flex-col shadow-lg rotate-12">
+                            <span class="font-extrabold text-2xl text-pastel-darkpink">20th</span>
+                            <span class="text-[10px] font-bold text-gray-500 leading-tight">Pengalaman</span>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </section>
 
-    <div class="rating-section">
-        <span class="rating-number">4,5</span>
-        <div class="stars">★★★★☆</div>
-        <span class="review-count">(33 Ulasan Google)</span>
+    <!-- Marquee Banner -->
+    <div class="bg-pastel-darkpink text-white py-3 border-y-4 border-white/20 transform -rotate-1 relative z-20 shadow-lg marquee-container">
+        <div class="marquee-content font-bold text-lg tracking-wider flex items-center gap-8">
+            <!-- Repeated content for continuous scroll -->
+            <span>✨ PELAYANAN RAMAH ✨</span>
+            <span>KERJA CEPAT ✨</span>
+            <span>HASIL TIDAK MENGECEWAKAN ✨</span>
+            <span>HARGA AFFORDABLE ✨</span>
+            <span>SESUAI KUALITAS ✨</span>
+            <span>✨ PELAYANAN RAMAH ✨</span>
+            <span>KERJA CEPAT ✨</span>
+            <span>HASIL TIDAK MENGECEWAKAN ✨</span>
+            <span>HARGA AFFORDABLE ✨</span>
+            <span>SESUAI KUALITAS ✨</span>
+        </div>
     </div>
 
-    <section id="services" class="services">
-        <h2>💖 Layanan Kami 💖</h2>
-        <div class="service-grid">
-            <div class="service-card">
-                <span class="service-icon">👰</span>
-                <h3>Tata Rambut Pengantin</h3>
-                <p>Jadikan hari istimewamu tak terlupakan dengan tata rambut impianmu.</p>
+    <!-- Services Section -->
+    <section id="layanan" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-extrabold mb-4">Layanan <span class="text-pastel-darkpink font-handwriting text-5xl">Favorit</span></h2>
+                <p class="text-gray-500 max-w-2xl mx-auto">Dari ujung rambut sampai riasan wajah, kita siap bikin penampilanmu makin stand out! 🌸</p>
             </div>
-            <div class="service-card">
-                <span class="service-icon">💇‍♀️</span>
-                <h3>Ekstensi Rambut</h3>
-                <p>Rambut panjang & tebal seketika. Menggunakan bahan berkualitas.</p>
-            </div>
-            <div class="service-card">
-                <span class="service-icon">✂️</span>
-                <h3>Potong & Penataan</h3>
-                <p>Gaya rambut modern yang sesuai dengan kepribadianmu.</p>
-            </div>
-            <div class="service-card">
-                <span class="service-icon">🎀</span>
-                <h3>Pengepangan</h3>
-                <p>Model kepang unik untuk berbagai acara.</p>
-            </div>
-            <div class="service-card">
-                <span class="service-icon">💄</span>
-                <h3>Jasa Rias (Makeup)</h3>
-                <p>Makeup profesional untuk wisuda, pesta, dan acara lainnya.</p>
-            </div>
-            <div class="service-card">
-                <span class="service-icon">🧴</span>
-                <h3>Sampo & Kondisioner</h3>
-                <p>Perawatan rambut lengkap untuk rambut sehat berkilau.</p>
-            </div>
-        </div>
-    </section>
 
-    <section id="gallery" class="gallery">
-        <h2>✨ Galeri Kami ✨</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1596178060810-72fd7f1c1f51?q=80&w=800&auto=format&fit=crop" alt="Hasil rambut dicat stok"></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522337360788-8b13df7722d6?q=80&w=800&auto=format&fit=crop" alt="Proses makeup stok"></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1610991823528-66ac67f1394c?q=80&w=800&auto=format&fit=crop" alt="Proses potong rambut stok"></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1596178060810-72fd7f1c1f51?q=80&w=800&auto=format&fit=crop" alt="Hasil rambut keriting stok"></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1612140445218-494b5f89146f?q=80&w=800&auto=format&fit=crop" alt="Proses cat rambut stok"></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=800&auto=format&fit=crop" alt="Interior salon aesthetic stok"></div>
-        </div>
-    </section>
-
-    <section id="reviews" class="reviews">
-        <h2>💬 Kata Pelanggan Kami 💬</h2>
-        <div class="review-grid">
-            <div class="review-card">
-                <p>"Berpengalaman selama 20th Pelayanan ramah, kerja cepat tapi hasil tdk mengecewakan ⭐⭐⭐⭐⭐"</p>
-                <div class="review-author">
-                    <div class="author-initial">J</div>
-                    <span>- J, Google Review</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-pastel-bg p-8 rounded-3xl border-2 border-pastel-pink shadow-genz hover:shadow-genz-hover hover:translate-x-[4px] hover:translate-y-[4px] transition-all group">
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-6 group-hover:scale-110 transition-transform border-2 border-pastel-pink">
+                        <i data-lucide="scissors" class="w-8 h-8 text-pastel-darkpink"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Potong & Styling</h3>
+                    <p class="text-gray-600">Penataan rambut, pengepangan rambut kekinian, hingga potong gaya terbaru yang cocok dengan bentuk wajahmu.</p>
                 </div>
-            </div>
-            <div class="review-card">
-                <p>"Mau potong, mau treatment semua memuaskan... harga affordable sesuai kualitas. ⭐⭐⭐⭐⭐"</p>
-                <div class="review-author">
-                    <div class="author-initial">Fr</div>
-                    <span>- Fr, Google Review</span>
+
+                <!-- Service 2 -->
+                <div class="bg-pastel-bg p-8 rounded-3xl border-2 border-pastel-pink shadow-genz hover:shadow-genz-hover hover:translate-x-[4px] hover:translate-y-[4px] transition-all group">
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-6 group-hover:scale-110 transition-transform border-2 border-pastel-pink">
+                        <i data-lucide="spray-can" class="w-8 h-8 text-pastel-darkpink"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Coloring & Ekstensi</h3>
+                    <p class="text-gray-600">Ekstensi rambut profesional dan pewarnaan rambut dengan produk berkualitas tinggi. Hasil memuaskan, rambut tetap sehat!</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-pastel-bg p-8 rounded-3xl border-2 border-pastel-pink shadow-genz hover:shadow-genz-hover hover:translate-x-[4px] hover:translate-y-[4px] transition-all group">
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-6 group-hover:scale-110 transition-transform border-2 border-pastel-pink">
+                        <i data-lucide="sparkles" class="w-8 h-8 text-pastel-darkpink"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Makeup & Bridal</h3>
+                    <p class="text-gray-600">Jasa rias untuk berbagai acara, wisuda, pesta, hingga tata rambut pengantin (Bridal) untuk hari spesialmu.</p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-pastel-bg p-8 rounded-3xl border-2 border-pastel-pink shadow-genz hover:shadow-genz-hover hover:translate-x-[4px] hover:translate-y-[4px] transition-all group lg:col-span-3 lg:max-w-3xl lg:mx-auto lg:w-full flex flex-col md:flex-row items-center gap-6">
+                    <div class="w-16 h-16 flex-shrink-0 bg-white rounded-2xl flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform border-2 border-pastel-pink">
+                        <i data-lucide="droplets" class="w-8 h-8 text-pastel-darkpink"></i>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h3 class="text-2xl font-bold mb-2">Wash & Treatment</h3>
+                        <p class="text-gray-600">Sampo & kondisioner premium, creambath, facial ringan, dan perawatan ekstra untuk relaksasi me-time kamu yang maksimal.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact">
-        <h2>📍 Temui Kami 📍</h2>
-        <div class="contact-content">
-            <div class="contact-info">
-                <div class="info-item">
-                    <span class="info-icon">📍</span>
-                    <div class="info-text">
-                        <h3>Alamat</h3>
-                        <p>Jl. Lamongan Raya No.9, Bendan Ngisor, Gajahmungkur, Kota Semarang, Jawa Tengah 50232</p>
+    <!-- Gallery Section -->
+    <section id="galeri" class="py-24 bg-pastel-pink/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                <div>
+                    <h2 class="text-4xl lg:text-5xl font-extrabold mb-4">Galeri <span class="text-pastel-darkpink font-handwriting text-5xl">Mimi</span></h2>
+                    <p class="text-gray-600 max-w-xl">Intip suasana nyaman di salon kami dan hasil karya memukau dari tim stylist profesional Mimi Salon.</p>
+                </div>
+                <a href="https://wa.me/628122937040" target="_blank" class="hidden md:inline-flex items-center gap-2 font-bold text-pastel-darkpink hover:underline underline-offset-4">
+                    Konsultasi Gaya Sekarang <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+            </div>
+
+            <!-- Masonry-like Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
+                <div class="col-span-2 row-span-2 rounded-3xl overflow-hidden group relative shadow-md">
+                    <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?q=80&w=800&auto=format&fit=crop" alt="Interior Salon Nyaman" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <p class="text-white font-bold text-xl">Suasana Salon Nyaman</p>
                     </div>
                 </div>
-                <div class="info-item">
-                    <span class="info-icon">🕒</span>
-                    <div class="info-text">
-                        <h3>Jam Operasional</h3>
-                        <p>Senin - Sabtu: 09.00 - 18.00</p>
-                    </div>
+                <div class="rounded-3xl overflow-hidden group relative shadow-md">
+                    <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=400&auto=format&fit=crop" alt="Styling Rambut" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                 </div>
-                <div class="info-item">
-                    <span class="info-icon">📞</span>
-                    <div class="info-text">
-                        <h3>Telepon</h3>
-                        <a href="tel:08122937040">0812-2937-040</a>
-                    </div>
+                <div class="rounded-3xl overflow-hidden group relative shadow-md">
+                    <img src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?q=80&w=400&auto=format&fit=crop" alt="Pewarnaan Rambut" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                 </div>
-                <div class="info-item">
-                    <span class="info-icon">💬</span>
-                    <div class="info-text">
-                        <h3>WhatsApp (Booking)</h3>
-                        <a href="https://wa.me/628122937040?text=Halo%20Mimi%20Salon,%20saya%20mau%20booking%20perawatan..." target="_blank">Chat Via WhatsApp</a>
-                    </div>
+                <div class="col-span-2 rounded-3xl overflow-hidden group relative shadow-md">
+                    <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=800&auto=format&fit=crop" alt="Makeup & Facial" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 object-top">
                 </div>
             </div>
             
-            <div class="map-placeholder">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYAAAAC4CAYAAAAdP3u4AAAACXBIWXMAAAsTAAALEwEAmpwYAAAKT2lDQ1BQaG90b3Nob3AgSUNDIFByb2ZpbGUAAHjanVNnVFPgFj33voAQhtIHJTToiAVUi5R6CyKqFEVWQD6Q9wQUFBCUYpU4GvSkn30O57M3E6N+H347b/2e0/G5E452v6f2X948p4b8Tj9F663677h0541h065r+7D3L3+35x550y7v513758+xT71pB7u8d70/5y714/4pX75nO7/7547x537z4P7m/903v88L30953v2/3673c9+37/v9d7t+37f395/3v88L30833b+t/8/9f//7/9//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//
+            <div class="mt-8 text-center md:hidden">
+                 <a href="https://wa.me/628122937040" class="inline-flex items-center gap-2 font-bold text-pastel-darkpink hover:underline">
+                    Konsultasi Gaya Sekarang <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="ulasan" class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center justify-center gap-2 mb-4">
+                    <i data-lucide="star" class="w-8 h-8 text-yellow-400 fill-yellow-400"></i>
+                    <h2 class="text-4xl lg:text-5xl font-extrabold">Kata <span class="text-pastel-darkpink font-handwriting text-5xl">Mereka</span></h2>
+                    <i data-lucide="star" class="w-8 h-8 text-yellow-400 fill-yellow-400"></i>
+                </div>
+                <p class="text-gray-500 font-semibold text-lg">Rating 4.5 dari Google Review 💖</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Review Card 1 -->
+                <div class="bg-white p-8 rounded-3xl border-2 border-pastel-pink shadow-[8px_8px_0px_0px_#FFD1DC] relative">
+                    <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-pastel-pink opacity-50 fill-pastel-pink"></i>
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-slate-600 rounded-full flex items-center justify-center text-white font-bold text-xl">J</div>
+                        <div>
+                            <h4 class="font-bold text-lg">J***</h4>
+                            <div class="flex text-yellow-400">
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic text-lg leading-relaxed">"Berpengalaman selama 20th Pelayanan ramah, kerja cepat tp hasil tdk mengecewakan"</p>
+                </div>
+
+                <!-- Review Card 2 -->
+                <div class="bg-white p-8 rounded-3xl border-2 border-pastel-pink shadow-[8px_8px_0px_0px_#FFD1DC] relative md:mt-12">
+                    <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-pastel-pink opacity-50 fill-pastel-pink"></i>
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xl">Fr</div>
+                        <div>
+                            <h4 class="font-bold text-lg">Fr***</h4>
+                            <div class="flex text-yellow-400">
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic text-lg leading-relaxed">"Mau potong, mau treatment semua memuaskan... harga affordable sesuai kualitas."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Contact -->
+    <section id="lokasi" class="py-24 bg-pastel-bg border-t-2 border-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 bg-white rounded-[2rem] p-6 lg:p-12 border-2 border-pastel-pink shadow-xl">
+                
+                <!-- Info -->
+                <div class="space-y-8">
+                    <div>
+                        <h2 class="text-3xl lg:text-4xl font-extrabold mb-4">Kunjungi <span class="text-pastel-darkpink font-handwriting text-5xl">Mimi Salon</span></h2>
+                        <p class="text-gray-600">Mampir ke salon kami untuk pengalaman perawatan terbaik. Kami tunggu kedatanganmu bestie! 👋</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-pastel-pink rounded-xl flex items-center justify-center flex-shrink-0 text-pastel-darkpink">
+                                <i data-lucide="map-pin" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Alamat</h4>
+                                <p class="text-gray-600">Jl. Lamongan Raya No.9, Bendan Ngisor, Kec. Gajahmungkur, Kota Semarang, Jawa Tengah 50232</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-pastel-pink rounded-xl flex items-center justify-center flex-shrink-0 text-pastel-darkpink">
+                                <i data-lucide="clock" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Jam Operasional</h4>
+                                <p class="text-gray-600">Buka Setiap Hari<br>Tutup pukul 18.00 WIB</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-pastel-pink rounded-xl flex items-center justify-center flex-shrink-0 text-pastel-darkpink">
+                                <i data-lucide="phone" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Telepon / WhatsApp</h4>
+                                <p class="text-gray-600 text-xl font-bold font-handwriting">0812-2937-040</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/628122937040?text=Halo%20Mimi%20Salon,%20saya%20ingin%20tanya/booking%20layanan%20dong%20%E2%9C%A8" target="_blank" class="w-full block text-center bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-full shadow-[4px_4px_0px_0px_#14532d] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_#14532d] transition-all">
+                        <i data-lucide="message-circle" class="w-5 h-5 inline-block mr-2 -mt-1"></i>
+                        Chat via WhatsApp
+                    </a>
+                </div>
+
+                <!-- Map -->
+                <div class="h-[400px] lg:h-auto rounded-3xl overflow-hidden border-2 border-pastel-pink shadow-inner relative">
+                    <!-- Generic Google Maps Embed for the street/area -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.986873177817!2d110.4072!3d-7.0097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708b4d0!2sJl.%20Lamongan%20Raya%20No.9%2C%20Bendan%20Ngisor%2C%20Kec.%20Gajahmungkur%2C%20Kota%20Semarang%2C%20Jawa%20Tengah%2050232!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        class="absolute inset-0 w-full h-full">
+                    </iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white pt-16 pb-8 border-t border-pastel-pink">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="w-16 h-16 bg-pastel-darkpink rounded-full flex items-center justify-center text-white font-bold text-3xl shadow-genz mx-auto mb-6">M</div>
+            <h3 class="font-handwriting text-4xl font-bold text-pastel-darkpink mb-4">Mimi Salon</h3>
+            <p class="text-gray-500 max-w-md mx-auto mb-8">Make your hair contact before eye contact. ✨ Tempat terbaik untuk merawat kecantikanmu dengan harga affordable di Semarang.</p>
+            
+            <div class="flex justify-center gap-4 mb-8">
+                <a href="#" class="w-10 h-10 bg-pastel-bg rounded-full flex items-center justify-center text-pastel-darkpink hover:bg-pastel-darkpink hover:text-white transition">
+                    <i data-lucide="instagram" class="w-5 h-5"></i>
+                </a>
+                <a href="#" class="w-10 h-10 bg-pastel-bg rounded-full flex items-center justify-center text-pastel-darkpink hover:bg-pastel-darkpink hover:text-white transition">
+                    <i data-lucide="facebook" class="w-5 h-5"></i>
+                </a>
+                <a href="#" class="w-10 h-10 bg-pastel-bg rounded-full flex items-center justify-center text-pastel-darkpink hover:bg-pastel-darkpink hover:text-white transition">
+                    <i data-lucide="map" class="w-5 h-5"></i>
+                </a>
+            </div>
+
+            <p class="text-sm text-gray-400">
+                &copy; <span id="year"></span> Mimi Salon. All rights reserved. <br>
+                Desain dibuat dengan 💖
+            </p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/628122937040" target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform flex items-center justify-center group animate-bounce hover:animate-none">
+        <i data-lucide="message-circle" class="w-8 h-8"></i>
+        <span class="absolute right-full mr-4 bg-white text-gray-800 text-sm font-bold py-2 px-4 rounded-xl shadow-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-green-100">
+            Halo! Ada yang bisa dibantu? ✨
+        </span>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Set Current Year in Footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Navbar blur effect on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-md');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body>
+</html>
