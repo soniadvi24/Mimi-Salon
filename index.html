@@ -3,234 +3,619 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mimi Salon - Semarang</title>
+    <title>Mimi Salon - Elevate Your Style 💖</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Pengaturan Dasar */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        /* RESET & DASAR */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #fdfbfb;
-            color: #333;
+            box-sizing: border-box;
+            scroll-behavior: smooth; /* Efek gulir halus */
         }
 
-        /* Bagian Header & Navigasi */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fffafb; /* Pink pastel sangat muda */
+            color: #4a4a4a; /* Teks abu-abu gelap agar kontras lembut */
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* PALETTE WARNA GEN Z PINK PASTEL */
+        :root {
+            --pink-light: #fffafb; /* Dasar */
+            --pink-medium: #ffeef2; /* Latar belakang bagian */
+            --pink-dark: #ffdbe9; /* Aksen/tombol */
+            --pink-bold: #ff8fa3; /* Teks penekanan/hover */
+            --text-main: #4a4a4a;
+            --text-heading: #2c2c2c;
+            --white: #ffffff;
+            --cream: #fffaf3;
+        }
+
+        /* HEADER & NAVIGASI */
         header {
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            padding: 15px 20px;
+            background-color: var(--white);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
         }
-        header h1 {
-            margin: 0;
+
+        .logo {
             font-size: 1.8rem;
-            color: #d81b60; /* Warna pink elegan */
+            font-weight: 700;
+            color: var(--text-heading);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
+
+        .logo-pink {
+            color: var(--pink-bold);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
         nav a {
-            color: #555;
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 1.1rem;
         }
+
         nav a:hover {
-            color: #d81b60;
+            color: var(--pink-bold);
         }
 
-        /* Bagian Utama (Hero Section) */
+        .cta-header {
+            background-color: var(--pink-bold);
+            color: var(--white);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px; /* Sudut sangat melengkung */
+            font-weight: 700;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .cta-header:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 143, 163, 0.3);
+        }
+
+        /* HERO SECTION */
         .hero {
-            /* Menggunakan gambar placeholder bernuansa salon/kecantikan */
-            background: linear-gradient(rgba(255, 240, 245, 0.85), rgba(255, 240, 245, 0.85)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: linear-gradient(rgba(255, 250, 251, 0.7), rgba(255, 250, 251, 0.7)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=2000&auto=format&fit=crop'); /* Gambar interior salon stok aesthetic */
+            background-size: cover;
+            background-position: center;
+            padding: 0 5%;
+            margin-top: 80px; /* Jarak untuk header */
+        }
+
+        .hero-content {
             text-align: center;
-            padding: 100px 20px;
+            max-width: 800px;
         }
-        .hero h2 {
-            font-size: 2.5rem;
-            color: #333;
-            margin-bottom: 10px;
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--text-heading);
+            margin-bottom: 1.5rem;
         }
+
+        .hero h1 span {
+            color: var(--pink-bold);
+        }
+
         .hero p {
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 20px;
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-main);
         }
-        .rating-hero {
+
+        .hero-cta {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .btn-large {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
             font-size: 1.2rem;
-            font-weight: bold;
-            color: #d81b60;
-            margin-bottom: 30px;
-        }
-        .btn-pesan {
-            background-color: #25D366; /* Warna WhatsApp */
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            border-radius: 25px;
-            font-weight: bold;
-            display: inline-block;
-            transition: 0.3s;
-        }
-        .btn-pesan:hover {
-            background-color: #1ebe57;
-            box-shadow: 0 4px 8px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
         }
 
-        /* Bagian Konten (Layanan & Ulasan) */
-        .section {
-            padding: 60px 20px;
-            max-width: 1000px;
-            margin: auto;
-        }
-        .section h2 {
-            text-align: center;
-            color: #d81b60;
-            font-size: 2rem;
-            margin-bottom: 40px;
-            position: relative;
-        }
-        
-        /* Grid Layanan */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        .card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 25px 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-            text-align: center;
-            border-top: 3px solid #d81b60;
-        }
-        .card h3 {
-            color: #333;
-            margin-top: 0;
-        }
-        .card p {
-            color: #666;
-            font-size: 0.95rem;
-            line-height: 1.5;
+        .btn-pink {
+            background-color: var(--pink-bold);
+            color: var(--white);
         }
 
-        /* Kotak Ulasan */
-        .ulasan-container {
-            background-color: #fff0f5; /* Soft pink */
-            padding: 30px;
-            border-radius: 10px;
-        }
-        .ulasan-item {
-            font-style: italic;
-            margin-bottom: 15px;
-            color: #444;
-            line-height: 1.6;
-        }
-        .rating-bintang {
-            color: #ffc107; /* Warna emas untuk bintang */
-            font-weight: bold;
-        }
-        .ulasan-nama {
-            font-weight: bold;
-            color: #d81b60;
+        .btn-pink:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 143, 163, 0.3);
         }
 
-        /* Bagian Footer / Kontak */
-        footer {
-            background-color: #2c2c2c;
-            color: #f9f9f9;
+        .btn-outline {
+            border: 2px solid var(--pink-bold);
+            color: var(--pink-bold);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--pink-medium);
+            transform: translateY(-5px);
+        }
+
+        /* BAGIAN RATING (DARI GAMBAR) */
+        .rating-section {
+            background-color: var(--white);
+            padding: 2rem 5%;
             text-align: center;
-            padding: 40px 20px;
-            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            border-bottom: 2px solid var(--pink-medium);
         }
-        footer h2 {
-            color: #fff;
-            margin-top: 0;
+
+        .rating-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--pink-bold);
         }
-        footer p {
-            margin: 10px 0;
+
+        .stars {
+            color: #ffc107; /* Warna bintang kuning emas */
+            font-size: 1.5rem;
+        }
+
+        .review-count {
+            color: var(--text-main);
             font-size: 1rem;
         }
-        .footer-bottom {
-            margin-top: 30px;
-            font-size: 0.85rem;
-            color: #aaa;
+
+        /* BAGIAN LAYANAN */
+        .services {
+            padding: 5rem 5%;
+            background-color: var(--pink-medium);
+        }
+
+        .services h2 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--text-heading);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 143, 163, 0.15);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            color: var(--pink-bold);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--text-heading);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--text-main);
+            font-size: 1rem;
+        }
+
+        /* BAGIAN GALERI (TAMBAHAN UNTUK AESTHETIC) */
+        .gallery {
+            padding: 5rem 5%;
+            background-color: var(--white);
+        }
+
+        .gallery h2 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--text-heading);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        /* BAGIAN ULASAN (DARI GAMBAR) */
+        .reviews {
+            padding: 5rem 5%;
+            background-color: var(--cream);
+        }
+
+        .reviews h2 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--text-heading);
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            position: relative;
+        }
+
+        .review-card p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 600;
+            color: var(--text-heading);
+        }
+
+        .author-initial {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--pink-bold);
+            color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        /* BAGIAN KONTAK */
+        .contact {
+            padding: 5rem 5%;
+            background-color: var(--white);
+        }
+
+        .contact h2 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--text-heading);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: start;
+            gap: 1.5rem;
+        }
+
+        .info-icon {
+            font-size: 2rem;
+            color: var(--pink-bold);
+            margin-top: 0.3rem;
+        }
+
+        .info-text h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-heading);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-text p, .info-text a {
+            color: var(--text-main);
+            font-size: 1.1rem;
+        }
+
+        .info-text a:hover {
+            color: var(--pink-bold);
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 350px;
+            border-radius: 20px;
+            border: 2px solid var(--pink-medium);
+            background-color: var(--cream);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-main);
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 2rem;
+            overflow: hidden;
+        }
+        
+        /* Simpulkan tampilan peta */
+        .map-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 18px;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--white);
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 2px solid var(--pink-medium);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-link {
+            font-size: 1.8rem;
+            color: var(--text-main);
+        }
+
+        .social-link:hover {
+            color: var(--pink-bold);
+        }
+
+        .copyright {
+            color: var(--text-main);
+            font-size: 1rem;
+        }
+
+        /* RESPONSIVE DESIGN (HP) */
+        @media (max-width: 900px) {
+            header {
+                padding: 1rem 5%;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .service-grid, .contact-content {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Mimi Salon</h1>
+        <a href="#" class="logo">Mimi<span class="logo-pink">Salon</span> ✨</a>
         <nav>
-            <a href="#beranda">Beranda</a>
-            <a href="#layanan">Layanan</a>
-            <a href="#ulasan">Ulasan</a>
-            <a href="#kontak">Kontak</a>
+            <ul>
+                <li><a href="#services">Layanan</a></li>
+                <li><a href="#gallery">Galeri</a></li>
+                <li><a href="#reviews">Ulasan</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
         </nav>
+        <a href="#contact" class="cta-header">Booking Sekarang!</a>
     </header>
 
-    <section id="beranda" class="hero">
-        <h2>Perawatan Kecantikan Profesional & Terpercaya</h2>
-        <p>Dengan pengalaman lebih dari 20 tahun, kami mengutamakan pelayanan ramah, kerja cepat, dan hasil yang tidak mengecewakan. Kualitas terbaik dengan harga yang *affordable*.</p>
-        <div class="rating-hero">⭐ 4.5/5 (Berdasarkan Ulasan Google)</div>
-        <a href="https://wa.me/628122937040?text=Halo%20Mimi%20Salon,%20saya%20ingin%20reservasi/tanya%20layanan..." class="btn-pesan">Reservasi via WhatsApp</a>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Elevate Your Style with <span class="hero-span">Mimi Salon</span> Semarang</h1>
+            <p>Perawatan kecantikan terbaik dengan pengalaman lebih dari 20 tahun. Hasil memuaskan, harga terjangkau, dan pelayanan super ramah. Your hair, our priority! 💅💇‍♀️</p>
+            <div class="hero-cta">
+                <a href="#services" class="btn-large btn-pink">Layanan Kami</a>
+                <a href="#contact" class="btn-large btn-outline">Reservasi</a>
+            </div>
+        </div>
     </section>
 
-    <section id="layanan" class="section">
-        <h2>Layanan Kami</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Potong & Penataan Rambut</h3>
-                <p>Mulai dari potong rambut biasa hingga penataan rambut spesial dan tata rambut pengantin.</p>
+    <div class="rating-section">
+        <span class="rating-number">4,5</span>
+        <div class="stars">★★★★☆</div>
+        <span class="review-count">(33 Ulasan Google)</span>
+    </div>
+
+    <section id="services" class="services">
+        <h2>💖 Layanan Kami 💖</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <span class="service-icon">👰</span>
+                <h3>Tata Rambut Pengantin</h3>
+                <p>Jadikan hari istimewamu tak terlupakan dengan tata rambut impianmu.</p>
             </div>
-            <div class="card">
-                <h3>Perawatan & Cuci</h3>
-                <p>Layanan sampo, kondisioner, dan perawatan (*treatment*) agar rambut tetap sehat terawat.</p>
+            <div class="service-card">
+                <span class="service-icon">💇‍♀️</span>
+                <h3>Ekstensi Rambut</h3>
+                <p>Rambut panjang & tebal seketika. Menggunakan bahan berkualitas.</p>
             </div>
-            <div class="card">
-                <h3>Ekstensi & Kepang</h3>
-                <p>Melayani jasa ekstensi rambut profesional dan juga teknik pengepangan rambut.</p>
+            <div class="service-card">
+                <span class="service-icon">✂️</span>
+                <h3>Potong & Penataan</h3>
+                <p>Gaya rambut modern yang sesuai dengan kepribadianmu.</p>
             </div>
-            <div class="card">
+            <div class="service-card">
+                <span class="service-icon">🎀</span>
+                <h3>Pengepangan</h3>
+                <p>Model kepang unik untuk berbagai acara.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">💄</span>
                 <h3>Jasa Rias (Makeup)</h3>
-                <p>Make up profesional untuk berbagai acara, memastikan Anda tampil memukau di momen spesial.</p>
+                <p>Makeup profesional untuk wisuda, pesta, dan acara lainnya.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🧴</span>
+                <h3>Sampo & Kondisioner</h3>
+                <p>Perawatan rambut lengkap untuk rambut sehat berkilau.</p>
             </div>
         </div>
     </section>
 
-    <section id="ulasan" class="section">
-        <h2>Apa Kata Pelanggan Kami?</h2>
-        <div class="ulasan-container">
-            <div class="ulasan-item">
-                "Berpengalaman selama 20th Pelayanan ramah,kerja cepat tp hasil tdk mengecewakan" <br>
-                <span class="rating-bintang">⭐⭐⭐⭐⭐</span> — <span class="ulasan-nama">J</span>
+    <section id="gallery" class="gallery">
+        <h2>✨ Galeri Kami ✨</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1596178060810-72fd7f1c1f51?q=80&w=800&auto=format&fit=crop" alt="Hasil rambut dicat stok"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522337360788-8b13df7722d6?q=80&w=800&auto=format&fit=crop" alt="Proses makeup stok"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1610991823528-66ac67f1394c?q=80&w=800&auto=format&fit=crop" alt="Proses potong rambut stok"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1596178060810-72fd7f1c1f51?q=80&w=800&auto=format&fit=crop" alt="Hasil rambut keriting stok"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1612140445218-494b5f89146f?q=80&w=800&auto=format&fit=crop" alt="Proses cat rambut stok"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=800&auto=format&fit=crop" alt="Interior salon aesthetic stok"></div>
+        </div>
+    </section>
+
+    <section id="reviews" class="reviews">
+        <h2>💬 Kata Pelanggan Kami 💬</h2>
+        <div class="review-grid">
+            <div class="review-card">
+                <p>"Berpengalaman selama 20th Pelayanan ramah, kerja cepat tapi hasil tdk mengecewakan ⭐⭐⭐⭐⭐"</p>
+                <div class="review-author">
+                    <div class="author-initial">J</div>
+                    <span>- J, Google Review</span>
+                </div>
             </div>
-            <hr style="border: 0; border-top: 1px solid #eebbcc; margin: 20px 0;">
-            <div class="ulasan-item">
-                "Mau potong, mau treatment semua memuaskan...harga affordable sesuai kualitas." <br>
-                <span class="rating-bintang">⭐⭐⭐⭐⭐</span> — <span class="ulasan-nama">Fr</span>
+            <div class="review-card">
+                <p>"Mau potong, mau treatment semua memuaskan... harga affordable sesuai kualitas. ⭐⭐⭐⭐⭐"</p>
+                <div class="review-author">
+                    <div class="author-initial">Fr</div>
+                    <span>- Fr, Google Review</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer id="kontak">
-        <h2>Mimi Salon</h2>
-        <p>📍 Jl. Lamongan Raya No.9, Bendan Ngisor, Kec. Gajahmungkur, Kota Semarang, Jawa Tengah 50232</p>
-        <p>🕒 Buka Setiap Hari (Tutup pukul 18.00)</p>
-        <p>📞 Telp / WA: 0812-2937-040</p>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Mimi Salon. All rights reserved.</p>
-        </div>
-    </footer>
-
-</body>
-</html>
+    <section id="contact" class="contact">
+        <h2>📍 Temui Kami 📍</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="info-item">
+                    <span class="info-icon">📍</span>
+                    <div class="info-text">
+                        <h3>Alamat</h3>
+                        <p>Jl. Lamongan Raya No.9, Bendan Ngisor, Gajahmungkur, Kota Semarang, Jawa Tengah 50232</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">🕒</span>
+                    <div class="info-text">
+                        <h3>Jam Operasional</h3>
+                        <p>Senin - Sabtu: 09.00 - 18.00</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">📞</span>
+                    <div class="info-text">
+                        <h3>Telepon</h3>
+                        <a href="tel:08122937040">0812-2937-040</a>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">💬</span>
+                    <div class="info-text">
+                        <h3>WhatsApp (Booking)</h3>
+                        <a href="https://wa.me/628122937040?text=Halo%20Mimi%20Salon,%20saya%20mau%20booking%20perawatan..." target="_blank">Chat Via WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="map-placeholder">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYAAAAC4CAYAAAAdP3u4AAAACXBIWXMAAAsTAAALEwEAmpwYAAAKT2lDQ1BQaG90b3Nob3AgSUNDIFByb2ZpbGUAAHjanVNnVFPgFj33voAQhtIHJTToiAVUi5R6CyKqFEVWQD6Q9wQUFBCUYpU4GvSkn30O57M3E6N+H347b/2e0/G5E452v6f2X948p4b8Tj9F663677h0541h065r+7D3L3+35x550y7v513758+xT71pB7u8d70/5y714/4pX75nO7/7547x537z4P7m/903v88L30953v2/3673c9+37/v9d7t+37f395/3v88L30833b+t/8/9f//7/9//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//v//v8D//
